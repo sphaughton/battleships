@@ -2,16 +2,19 @@ class Ship
 
 	def initialize
 		@size = 1
+		@hit = false
 	end
 
 	def size
 		@size
 	end
 
-	def sunk
+	def hit?
+		@hit = true
 	end
 
-	def position
+	def status
+		@hit = true ? "sunk" : "missed"
 	end
 
 end

@@ -1,11 +1,11 @@
-class Marker
+# class Marker
 
-	def initialize
-		@hit = true
-	end
+# 	def initialize
+# 		@hit = true
+# 	end
 
-	def hit?
-		@hit
-	end
+# 	def hit?
+# 		@hit
+# 	end
 
-end
+# end
