@@ -1,12 +1,10 @@
 class Ship
 
-	def initialize
-		@size = 1
-		@hit = false
-	end
+	attr_reader :size
 
-	def size
-		@size
+	def initialize(size = 1)
+		@size = size
+		@hit = false
 	end
 
 	def hit?
