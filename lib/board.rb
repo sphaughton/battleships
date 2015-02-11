@@ -1,5 +1,15 @@
-# module Board
+class Board
 
-# 	def size
+	attr_reader :grid
 
-# end
+	def grid
+		@board = {}
+		('a'..'b').map do |letter|
+			(1..2).map do |number|
+				@board.store["#{letter}" + "#{number}"] = Cell.new
+			end
+		end
+	board
+	end
+
+end

@@ -1,9 +1,11 @@
-# describe Board do
+require 'board'
 
-# 	let(:board){Board.new}
+describe Board do
 
-# 	it "should be a grid" do
-# 		expect(board.grid)
-# 	end
+	let(:board){Board.new}
+
+	it "should be a grid on initialisation" do
+		expect{board}.not_to raise_error
+	end
 	
-# end
+end
