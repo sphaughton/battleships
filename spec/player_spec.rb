@@ -2,14 +2,31 @@ require 'player'
 
 describe Player do
 
-	let(:player){Player.new}
+  let(:player){Player.new("Sean")}
+  let(:board){double :board}
 
-	it 'should be player 1 on initalisation' do
-		expect(player.id).to eq 'Player 1'
-	end
+  before{player.board = board}
 
-	it 'should be player 2 when player 1 starts the game' do
-		player_two = Player.player_two
-		expect(player_two.id).to eq 'Player 2'
-	end
+  it "has a name" do
+    expect(player.name).to eq "Sean"
+  end
+
+  it "can have a board" do
+    expect(player.board).to eq board
+  end
+
+  it "can know if they have lost" do
+    allow(board).to receive(:floating_ships?).and_return false
+    expect(player.lost?).to eq true
+  end
+
+  it "can know if they haven't lost" do
+    allow(board).to receive(:floating_ships?).and_return true
+    expect(player.lost?).to eq false
+  end
+
+  it "can receive a shot" do
+    expect(board).to receive(:shoot_at).with :A1
+    player.receive_shot(:A1)
+  end
 end

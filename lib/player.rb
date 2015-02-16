@@ -1,13 +1,18 @@
 class Player
 
-	attr_reader :id
+  attr_reader :name
+  attr_accessor :board
 
-	def initialize(id = 'Player 1')
-		@id = id
-	end
+  def initialize(name)
+    @name = name
+  end
 
-	def self.player_two
-		new('Player 2')
-	end
+  def lost?
+    !board.floating_ships?
+  end
+
+  def receive_shot(coordinate)
+    board.shoot_at(coordinate)
+  end
 
 end
